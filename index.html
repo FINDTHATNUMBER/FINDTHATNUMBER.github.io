@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+    <html>
+    
+    <head>
+  
+      <link rel="icon" type="image/png" href="favicon.png">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Find almost everything about a number, super helpful on school work!">
+      <meta name="keywords" content="find, that, number, finder, number finder, the, what, how, when">
+      <meta name="robots" content="index, follow">
+
+      <title>   
+      FIND THAT NUMBER!
+      </title>
+      <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <h1 >FIND THAT NUMBER!</h1>
+
+  <section>
+   <p>FIND THAT NUMBER! is a free service for students all around the world, 
+      FIND THAT NUMBER! will help you find almost everything about a number, 
+      super helpful on school work! This was hard to do, so please, enjoy it and share!</p>
+      <p>To use it: <br> Type the number you want to know about on the textbox, then click on send and the system should tell
+        you all you need to know about it! Recomendations: Don´t type super big numbers or the system may lag and type only numbers, the system does
+    not like letters ;)</p>
+    
+      <input type="text" id="userInput" placeholder="Type a number...">
+      <button onclick="analyzeNumber()">Send</button>
+  
+      <h3>About your number:</h3>
+      <div id="response"></div>
+  
+      <script>
+          function analyzeNumber() {
+              const input = document.getElementById('userInput').value;
+              const number = parseFloat(input);
+  
+              if (isNaN(number)) {
+                  document.getElementById('response').innerText = "Please, type a valid number...";
+                  return;
+              }
+  
+              let result = `Your number: ${number}\n`;
+  
+              if (Number.isInteger(number)) {
+                  result += "This is a whole number .\n";
+              } else {
+                  result += "This is a decimal number.\n";
+              }
+  
+              if (number % 2 === 0) {
+                  result += "This is an even number.\n";
+              } else {
+                  result += "This is an odd number.\n";
+              }
+  
+              if (isPrime(number)) {
+                  result += "This is a prime number.\n";
+              } else {
+                  result += "This is not a prime number.\n";
+              }
+  
+              document.getElementById('response').innerText = result;
+          }
+  
+          function isPrime(num) {
+              if (!Number.isInteger(num) || num <= 1) return false;
+              for (let i = 2; i <= Math.sqrt(num); i++) {
+                  if (num % i === 0) return false;
+              }
+              return true;
+          }
+          </script>
+
+This page was created with love by Ducksterr
+
+          </section>
+</body>
+</html>
